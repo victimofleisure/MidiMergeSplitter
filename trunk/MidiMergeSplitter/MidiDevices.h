@@ -61,15 +61,15 @@ public:
 // Attributes
 	bool	IsEmpty(int iType) const;
 	int		GetIdx(int iType) const;
-	void	SetIdx(int iType, int iDevice);
+	void	SetIdx(int iType, int iDev);
 	int		GetCount(int iType) const;
 	CString	GetName(int iType) const;
 	CString	GetID(int iType) const;
 	void	GetDevice(int iType, CDevice& dev) const;
-	bool	IsDeviceIdx(int iType, int iDevice) const;
-	CString	GetName(int iType, int iDevice) const;
-	CString	GetID(int iType, int iDevice) const;
-	void	GetDevice(int iType, int iDevice, CDevice& dev) const;
+	bool	IsDeviceIdx(int iType, int iDev) const;
+	CString	GetName(int iType, int iDev) const;
+	CString	GetID(int iType, int iDev) const;
+	void	GetDevice(int iType, int iDev, CDevice& dev) const;
 	void	GetSelection(CSelection& sel) const;
 	static	bool	IsValidDeviceType(int iType);
 	static	CString	GetTypeCaption(int iType);
@@ -97,10 +97,10 @@ protected:
 
 	// Attributes
 		int		GetIdx() const;
-		void	SetIdx(int iDevice);
-		CString	GetName(int iDevice) const;
-		CString	GetID(int iDevice) const;
-		void	GetDevice(int iDevice, CDevice& dev) const;
+		void	SetIdx(int iDev);
+		CString	GetName(int iDev) const;
+		CString	GetID(int iDev) const;
+		void	GetDevice(int iDev, CDevice& dev) const;
 
 	// Operations
 		bool	operator==(const CDeviceArray& arrDev) const;
@@ -181,9 +181,9 @@ inline int CMidiDevices::GetIdx(int iType) const
 	return m_arrDev[iType].GetIdx();
 }
 
-inline void CMidiDevices::SetIdx(int iType, int iDevice)
+inline void CMidiDevices::SetIdx(int iType, int iDev)
 {
-	m_arrDev[iType].SetIdx(iDevice);
+	m_arrDev[iType].SetIdx(iDev);
 }
 
 inline int CMidiDevices::GetCount(int iType) const
@@ -206,24 +206,24 @@ inline void CMidiDevices::GetDevice(int iType, CDevice& dev) const
 	GetDevice(iType, GetIdx(iType), dev);
 }
 
-inline bool CMidiDevices::IsDeviceIdx(int iType, int iDevice) const
+inline bool CMidiDevices::IsDeviceIdx(int iType, int iDev) const
 {
-	return m_arrDev[iType].IsIndex(iDevice);
+	return m_arrDev[iType].IsIndex(iDev);
 }
 
-inline CString CMidiDevices::GetName(int iType, int iDevice) const
+inline CString CMidiDevices::GetName(int iType, int iDev) const
 {
-	return m_arrDev[iType].GetName(iDevice);
+	return m_arrDev[iType].GetName(iDev);
 }
 
-inline CString CMidiDevices::GetID(int iType, int iDevice) const
+inline CString CMidiDevices::GetID(int iType, int iDev) const
 {
-	return m_arrDev[iType].GetID(iDevice);
+	return m_arrDev[iType].GetID(iDev);
 }
 
-inline void CMidiDevices::GetDevice(int iType, int iDevice, CDevice& dev) const
+inline void CMidiDevices::GetDevice(int iType, int iDev, CDevice& dev) const
 {
-	m_arrDev[iType].GetDevice(iDevice, dev);
+	m_arrDev[iType].GetDevice(iDev, dev);
 }
 
 inline bool CMidiDevices::IsValidDeviceType(int iType)
